@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sanskriti/firebase_options.dart';
+import 'package:sanskriti/view/home_screen.dart';
 
 import 'package:sanskriti/view/sign_up.dart';
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SignUp(),
+      home: const HomePage(),
     );
   }
 }

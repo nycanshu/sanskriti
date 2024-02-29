@@ -8,5 +8,6 @@ class AppColors {
   static const grayshade = Color(0xFFEBEBEB);
   static const lightblue = Color(0xFF4B68D1);
   static const blackshade = Color(0xFF555555);
+  static const black = Color(0xFF000000);
   static const hintText = Color(0xFFC7C7CD);
 }
