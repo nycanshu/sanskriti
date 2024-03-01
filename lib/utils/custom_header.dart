@@ -6,8 +6,7 @@ import 'app_colors.dart';
 class CustomHeader extends StatelessWidget {
   final String text;
   final Function()? onTap;
-  const CustomHeader({Key? key, required this.text, required this.onTap})
-      : super(key: key);
+  const CustomHeader({super.key, required this.text, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

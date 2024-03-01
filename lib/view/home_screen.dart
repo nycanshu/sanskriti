@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sanskriti/controller/helper_controller.dart';
 import 'package:sanskriti/utils/app_colors.dart';
 import 'package:sanskriti/view/profile_page.dart';
-import '../helper/categories_card.dart';
-import '../helper/custom_carosel.dart';
 import '../utils/text_styles.dart';
+import 'explore_page.dart';
+import 'feedbackPage.dart';
+import 'homepageContent.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({
-    super.key,
-  });
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0; // Declare _currentIndex as an instance variable
 
   @override
   Widget build(BuildContext context) {
-    HelperController helperController = Get.put(HelperController());
+    final List<Widget> _pages = [
+      const HomePageContent(),
+      const ExplorePage(),
+      const FeedbackPage(),
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('SansKriti', style: KTextStyle.homeHeaderTextStyle),
@@ -55,62 +65,30 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView(
-        children: [
-          Column(
-            children: [
-              ImageCarousel(
-                imageList: helperController.image,
-                height: 250,
-                autoPlay: true,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Padding(
-                padding: EdgeInsets.only(
-                  left: 15,
-                  right: 15,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Categories',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    Text(
-                      'See all..',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          GridView.builder(
-            shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              mainAxisSpacing: 8.0,
-              crossAxisSpacing: 8.0,
-            ),
-            itemCount: helperController.topPicks.length,
-            itemBuilder: (context, index) {
-              return CategoryItem(
-                imageUrl: helperController.topPicks[index]["image"],
-                name: helperController.topPicks[index]["name"],
-              );
-            },
+          BottomNavigationBarItem(
+            icon: Icon(Icons.explore),
+            label: 'Explore',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Feedback',
           ),
         ],
+        selectedItemColor: AppColors.lightsky,
       ),
+      body: _pages[_currentIndex],
     );
   }
 }

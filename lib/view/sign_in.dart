@@ -98,7 +98,7 @@ class Signin extends StatelessWidget {
                   AuthButton(
                     onTap: () {
                       authController.loginUser();
-                      Get.offAll(const HomePage());
+                      Get.offAll(HomePage());
                     },
                     text: 'Log In',
                   ),

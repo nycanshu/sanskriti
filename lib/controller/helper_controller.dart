@@ -21,11 +21,11 @@ class HelperController extends GetxController {
   ];
 
   List<Map<String, dynamic>> categories = [
-    {"image": "images/Chitrakoot.jpg", "name": "Education"},
-    {"image": "images/Hampi_1.jpg", "name": "E-books"},
-    {"image": "images/Haridwar_1.jpg", "name": "Events"},
-    {"image": "images/Puri_1.jpg", "name": "Cultures"},
-    {"image": "images/Rameshwaram.jpg", "name": "Blogs"},
-    {"image": "images/Prayagraj.jpg", "name": "Feedback"},
+    {"image": "images/education_caticon.png", "name": "Education"},
+    {"image": "images/ebook_caticon.png", "name": "E-books"},
+    {"image": "images/event_caticon.png", "name": "Events"},
+    {"image": "images/culture_caticon.png", "name": "Cultures"},
+    {"image": "images/blogs_caticon.png", "name": "Blogs"},
+    {"image": "images/feedback_caticon.png", "name": "Feedback"},
   ];
 }
