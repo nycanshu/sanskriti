@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanskriti/controller/auth_controller.dart';
 import 'package:sanskriti/utils/app_colors.dart';
 import 'package:sanskriti/view/profile_page.dart';
 import '../utils/text_styles.dart';
 import 'explore_page.dart';
-import 'feedbackPage.dart';
+
 import 'homepageContent.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,10 +20,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.put(AuthController());
     final List<Widget> _pages = [
       const HomePageContent(),
       const ExplorePage(),
-      const FeedbackPage(),
+      const ProfilePage(),
     ];
 
     return Scaffold(
@@ -31,19 +33,14 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: AppColors.lightsky,
-        leading: GestureDetector(
-          onTap: () {
-            //function to open drawer
+        leading: IconButton(
+          onPressed: () {
+            //function to open profile
           },
-          child: const Padding(
-            padding: EdgeInsets.only(
-              left: 15,
-            ),
-            child: Icon(
-              Icons.menu,
-              color: AppColors.black,
-              size: 30,
-            ),
+          icon: const Icon(
+            Icons.menu,
+            color: AppColors.black,
+            size: 30,
           ),
         ),
         actions: [
@@ -51,13 +48,13 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(
               right: 15,
             ),
-            child: GestureDetector(
-              onTap: () {
-                //function to open profile
-                Get.to(const ProfilePage());
+            child: IconButton(
+              onPressed: () {
+                authController.logOut();
+                //function to logout
               },
-              child: const Icon(
-                Icons.person,
+              icon: const Icon(
+                Icons.exit_to_app,
                 color: AppColors.black,
                 size: 30,
               ),
@@ -83,7 +80,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Feedback',
+            label: 'Profile',
           ),
         ],
         selectedItemColor: AppColors.lightsky,

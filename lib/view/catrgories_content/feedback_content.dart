@@ -1,7 +1,78 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sanskriti/controller/feedback_controller.dart';
+import 'package:sanskriti/utils/custom_button.dart';
+import 'package:sanskriti/utils/custom_formfield.dart';
 
 Widget feedbackContent() {
-  return const Center(
-    child: Text('Content for feedback'),
+  FeedBackController feedbackController = Get.put(FeedBackController());
+
+  return SingleChildScrollView(
+    child: Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 20,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Give feedback',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 35,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomFormField(
+            controller: feedbackController.nameController,
+            headingText: 'Name',
+            hintText: 'Enter your name',
+            maxLines: 1,
+            obsecureText: false,
+            suffixIcon: const Icon(Icons.person),
+            textInputAction: TextInputAction.next,
+            textInputType: TextInputType.name,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomFormField(
+            controller: feedbackController.nameController,
+            headingText: 'Email',
+            hintText: 'yourmail@gmail.com',
+            maxLines: 1,
+            obsecureText: false,
+            suffixIcon: const Icon(Icons.mail),
+            textInputAction: TextInputAction.next,
+            textInputType: TextInputType.name,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomFormField(
+            controller: feedbackController.nameController,
+            headingText: 'Comment, if any',
+            hintText: 'Write something here....',
+            maxLines: 10,
+            obsecureText: false,
+            suffixIcon: const Icon(Icons.comment),
+            textInputAction: TextInputAction.next,
+            textInputType: TextInputType.name,
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          AuthButton(
+            text: 'PUBLISH FEEDBACK',
+            onTap: () {
+              Get.snackbar("Message", "Feedback submitted successfully");
+            },
+          ),
+        ],
+      ),
+    ),
   );
 }

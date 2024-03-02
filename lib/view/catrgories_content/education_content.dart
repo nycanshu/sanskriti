@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sanskriti/controller/helper_controller.dart';
+import 'package:sanskriti/helper/book_card.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 Widget educationContent() {
+  HelperController helperController = Get.put(HelperController());
   String videoId;
   videoId = YoutubePlayer.convertUrlToId(
       "https://www.youtube.com/watch?v=_fVad1jjsKc&pp=ygUaa25vdyB5b3VyIGluZGlhbiBteXRob2xvZ3k%3D")!;
-// BBAyRBTfsOU
+  // BBAyRBTfsOU
   late YoutubePlayerController controller;
   controller = YoutubePlayerController(
     initialVideoId: videoId,
@@ -21,10 +25,10 @@ Widget educationContent() {
       padding: const EdgeInsets.only(
         top: 20,
         left: 15,
+        right: 15,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment
-            .stretch, // Ensures children take up the full width
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Text(
             'Recently Played:',
@@ -72,7 +76,6 @@ Widget educationContent() {
             height: 20,
           ),
           const Row(
-            //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Recommended for you :",
@@ -80,25 +83,24 @@ Widget educationContent() {
               ),
             ],
           ),
-          GridView.builder(
-            shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              mainAxisSpacing: 8.0,
-              crossAxisSpacing: 8.0,
-            ),
-            itemBuilder: ((context, index) => Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.blue,
-                  ),
-                  margin: const EdgeInsets.all(8),
-                  child: Image.asset(
-                    "images/education.png",
-                    fit: BoxFit.cover,
-                  ),
-                )),
+          const SizedBox(
+            height: 20,
           ),
+          ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return BookCard(
+                  title: helperController.educationBooks[index]['name'],
+                  image: AssetImage(
+                      helperController.educationBooks[index]['image']),
+                  onTap: () async {
+                    await helperController.launchURL(
+                        helperController.educationBooks[index]['link']);
+                  },
+                );
+              },
+              itemCount: helperController.educationBooks.length),
         ],
       ),
     ),

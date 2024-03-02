@@ -90,4 +90,10 @@ class AuthController extends GetxController {
       );
     }
   }
+
+  //log out code
+  void logOut() async {
+    await auth.signOut();
+    Get.offAll(const Signin());
+  }
 }
