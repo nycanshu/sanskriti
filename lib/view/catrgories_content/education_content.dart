@@ -31,7 +31,7 @@ Widget educationContent() {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Text(
-            'Recently Played:',
+            'Must Watch Videos :',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
           ),
           Container(

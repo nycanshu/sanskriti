@@ -49,7 +49,7 @@ class BookCard extends StatelessWidget {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: onTap,
                       child: const Text("Read More.."),
                     ),
                   ],

@@ -4,12 +4,12 @@ import 'package:url_launcher/url_launcher.dart';
 class HelperController extends GetxController {
   //final Uri _url = Uri.parse('https://flutter.dev');
   Future<void> launchURL(String url) async {
-    var urllaunchable =
-        await canLaunch(url); //canLaunch is from url_launcher package
-    if (urllaunchable) {
-      await launch(url); //launch is from url_launcher package to launch URL
-    } else {
-      print("URL can't be launched.");
+    final Uri uri = Uri.parse(url.toString());
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw "Can't launch $url";
     }
   }
 
@@ -142,21 +142,29 @@ class HelperController extends GetxController {
   ];
 
   List<Map<String, dynamic>> cultureData = [
-    {"image": "images/culture_dance.jpg", "heading": "Dance", "subheding": ""},
+    {
+      "image": "images/culture_dance.jpg",
+      "heading": "Dance",
+      "subheding":
+          "Various Emotions is A Journey Through the Vibrant World of Cultural Dance Traditions."
+    },
     {
       "image": "images/culture_music.jpg",
-      "heading": "Ayurveda",
-      "subheding": ""
+      "heading": "Music",
+      "subheding":
+          "Promoting Traditions is Knowing the Tonal Variety of Indian Music."
     },
     {
       "image": "images/culture_ritals.jpg",
-      "heading": "Ayurveda",
-      "subheding": ""
+      "heading": "Rituals",
+      "subheding":
+          "Religious and Symbolic Practices Across Cultures are Being Revealed through Rituals and Traditions."
     },
     {
       "image": "images/culture_tradition.jpg",
-      "heading": "Ayurveda",
-      "subheding": ""
+      "heading": "Tradition",
+      "subheding":
+          "Clothes of Tradition is Saluting the Vibrant Variety of Traditional Clothes."
     },
   ];
 }

@@ -4,9 +4,11 @@ class EbookCard extends StatelessWidget {
   final AssetImage image;
   final String name;
   final String link;
+  final VoidCallback onTap;
 
   const EbookCard({
-    super.key, // Specify the Key parameter
+    super.key,
+    required this.onTap, // Specify the Key parameter
     required this.image,
     required this.name,
     required this.link,
@@ -53,7 +55,7 @@ class EbookCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: onTap,
                         child: const Text("Read More.."),
                       ),
                     ],

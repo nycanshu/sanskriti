@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sanskriti/controller/helper_controller.dart';
 import 'package:sanskriti/helper/ebookcard.dart';
 import 'package:sanskriti/utils/app_colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget ebookContent() {
   HelperController helperController = Get.put(HelperController());
@@ -41,7 +42,7 @@ Widget ebookContent() {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           const Row(
@@ -60,6 +61,10 @@ Widget ebookContent() {
               physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 return EbookCard(
+                  onTap: () async {
+                    await helperController
+                        .launchURL(helperController.eBooks[index]['link']);
+                  },
                   name: helperController.eBooks[index]['name'],
                   image: AssetImage(helperController.eBooks[index]['image']),
                   link: helperController.eBooks[index]['link'],

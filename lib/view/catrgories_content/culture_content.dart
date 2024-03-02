@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sanskriti/controller/helper_controller.dart';
 import 'package:sanskriti/helper/culture_card.dart';
 
 Widget cultureContent() {
+  HelperController helperController = Get.put(HelperController());
   return ListView.builder(
-    itemCount: 2,
+    itemCount: helperController.cultureData.length,
     itemBuilder: (context, index) {
-      return const CultureCard(
-        image: AssetImage("images/ayurveda.jpg"),
-        heading: "Culture",
-        subheading:
-            "Culture is the religion, cuisine, social habits, music and arts.",
+      return CultureCard(
+        image: AssetImage(helperController.cultureData[index]['image'] ?? ""),
+        heading: helperController.cultureData[index]['heading'] ?? "",
+        subheading: helperController.cultureData[index]['subheading'] ?? "",
       );
     },
   );
