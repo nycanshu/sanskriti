@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sanskriti/utils/app_colors.dart';
 import 'package:sanskriti/view/catrgories_content/blogs_content.dart';
 import 'package:sanskriti/view/catrgories_content/culture_content.dart';
 import 'package:sanskriti/view/catrgories_content/ebook_content.dart';
@@ -49,7 +50,7 @@ class CategoriesPage extends StatelessWidget {
         title: Text(categoriesName),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: AppColors.lightsky,
       ),
       body: bodyContent,
     );

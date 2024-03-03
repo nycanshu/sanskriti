@@ -14,7 +14,11 @@ class HelperController extends GetxController {
   }
 
   List<Map<String, dynamic>> image = [
-    {"image": "images/rammandir.jpg", "name": "Rammandir, Ayodhya"},
+    {
+      "image": "images/rammandir.jpg",
+      "name": "Rammandir, Ayodhya",
+      "link": "https://srjbtkshetra.org/"
+    },
     {"image": "images/premmandir.jpg", "name": "Premmandir, Vrindavan"},
     {"image": "images/Chitrakoot.jpg", "name": "Premmandir, Vrindavan"},
     {"image": "images/Hampi_1.jpg", "name": "Premmandir, Vrindavan"},
@@ -103,15 +107,14 @@ class HelperController extends GetxController {
       "location": "Mumbai",
       "date": "02/03/2024",
       "link":
-          "https://books.google.co.in/books?id=aSeCA-2sGO4C&printsec=frontcover#v=onepage&q&f=false"
+          "https://utsav.gov.in/view-event/6th-global-film-tourism-conclave-3"
     },
     {
       "image": "images/ongoing3.jpg",
       "name": "Rajim Kumbh Mela",
       "location": "Chhattisgarh",
       "date": "02/03/2024",
-      "link":
-          "https://books.google.co.in/books?id=aSeCA-2sGO4C&printsec=frontcover#v=onepage&q&f=false"
+      "link": "https://www.globalhighlights.com/india/fesitival-kumbh-mela"
     },
   ];
   List<Map<String, dynamic>> upcomingEvent = [
@@ -120,8 +123,7 @@ class HelperController extends GetxController {
       "name": "National Yoga Day",
       "location": "Karnataka",
       "date": "21/06/2024",
-      "link":
-          "https://books.google.co.in/books?id=aSeCA-2sGO4C&printsec=frontcover#v=onepage&q&f=false"
+      "link": "https://www.mygov.in/campaigns/international-yoga-day/"
     },
     {
       "image": "images/veltech_event.jpg",
@@ -129,15 +131,14 @@ class HelperController extends GetxController {
       "location": "Veltech, Chennai",
       "date": "18/03/2024",
       "link":
-          "https://books.google.co.in/books?id=aSeCA-2sGO4C&printsec=frontcover#v=onepage&q&f=false"
+          "https://www.veltech.edu.in/events/vinayagar-chaturthi-celebrations/"
     },
     {
       "image": "images/world_hindu_economy_forem.jpg",
       "name": "WHEF 2024",
       "location": "Mumbai",
       "date": "13/12/2024",
-      "link":
-          "https://books.google.co.in/books?id=aSeCA-2sGO4C&printsec=frontcover#v=onepage&q&f=false"
+      "link": "https://www.wheforum.org/"
     },
   ];
 
@@ -165,6 +166,73 @@ class HelperController extends GetxController {
       "heading": "Tradition",
       "subheding":
           "Clothes of Tradition is Saluting the Vibrant Variety of Traditional Clothes."
+    },
+  ];
+
+  List<Map<String, dynamic>> blogData = [
+    {
+      "title":
+          "Exploring the Depths of Indian Mythology: A Journey Through Time and Belief",
+      "subtitle":
+          "In the vast tapestry of human history, few narratives rival the richness and complexity of Indian mythology. Spanning millennia, Indian mythology weaves together a myriad of gods, goddesses, demons, heroes, and celestial beings into a vibrant tapestry that reflects the cultural, spiritual, and philosophical ethos of the Indian subcontinent.",
+    },
+    {
+      "title": "The Origins:",
+      "subtitle":
+          "Indian mythology finds its roots in the ancient scriptures known as the Vedas, which were composed between 1500 BCE and 500 BCE. These texts, revered as the foundational scriptures of Hinduism, contain hymns, rituals, and philosophical insights that form the bedrock of Indian religious thought.",
+    },
+    {
+      "title": "Pantheon of Deities:",
+      "subtitle":
+          "Central to Indian mythology is its pantheon of gods and goddesses, each with their own unique attributes, stories, and symbolism. At the forefront stands the Trimurti - the trinity of Brahma, the creator; Vishnu, the preserver; and Shiva, the destroyer...",
+    },
+    {
+      "title": "Epics and Legends:",
+      "subtitle":
+          "Indian mythology is replete with epic narratives and legendary tales that captivate the imagination. Chief among these are the two great epics, the Mahabharata and the Ramayana...",
+    },
+    {
+      "title": "Symbolism and Allegory:",
+      "subtitle":
+          "Beyond their literal interpretations, the stories of Indian mythology are imbued with profound symbolism and allegory...",
+    },
+    {
+      "title": "Living Tradition:",
+      "subtitle":
+          "Despite its ancient origins, Indian mythology remains a vibrant and living tradition, deeply ingrained in the cultural fabric of the subcontinent...",
+    }
+  ];
+
+  List<Map<String, dynamic>> exploreData = [
+    {
+      "image": "images/arvr_tajmahal.jpg",
+      "heading": "Taj Mahal",
+      "subheding":
+          "Eternal love immortalized in marble, myth of Shah Jahan's devotion."
+    },
+    {
+      "image": "images/arvr_puri.jpg",
+      "heading": "Puri Temple",
+      "subheding":
+          "Lord Jagannath's sacred residence, with its mystical architecture inspiring godly mythology."
+    },
+    {
+      "image": "images/arvr_meenakshi.jpg",
+      "heading": "MeenaKshi Temple",
+      "subheding":
+          "Meenakshi Temple in Madurai is a mythical architectural tribute to the gods."
+    },
+    {
+      "image": "images/arvr_khujraho.jpg",
+      "heading": "Khujraho Temple",
+      "subheding":
+          "Khajuraho Temples are furnished with paintings depicting gods and goddesses."
+    },
+    {
+      "image": "images/arvr_BirlaMandir.jpg",
+      "heading": "Birla Mandir",
+      "subheding":
+          "Hindu gods' heavenly residence embellished with complex designs."
     },
   ];
 }

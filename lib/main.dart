@@ -5,6 +5,7 @@ import 'package:sanskriti/firebase_options.dart';
 import 'package:sanskriti/view/home_screen.dart';
 
 import 'package:sanskriti/view/sign_up.dart';
+import 'package:sanskriti/view/welcome_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const WelcomePage(),
     );
   }
 }

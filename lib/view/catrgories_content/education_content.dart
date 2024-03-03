@@ -16,7 +16,7 @@ Widget educationContent() {
     flags: const YoutubePlayerFlags(
       autoPlay: false,
       loop: true,
-      mute: true,
+      mute: false,
     ),
   );
 

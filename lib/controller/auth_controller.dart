@@ -33,13 +33,11 @@ class AuthController extends GetxController {
         Get.snackbar(
           'Error',
           'Email id already in use!',
-          duration: const Duration(seconds: 2),
         );
       } else if (e.code == 'invalid-email') {
         Get.snackbar(
           'Error',
           'Please Enter valid Email!',
-          duration: const Duration(seconds: 2),
         );
       }
     } catch (e) {

@@ -4,14 +4,14 @@ class OngoingEvent extends StatelessWidget {
   final String image;
   final String name;
   final String date;
-  final String link;
+  final VoidCallback ontap;
   final String location;
 
   const OngoingEvent({
     super.key,
     required this.image,
     required this.name,
-    required this.link,
+    required this.ontap,
     required this.location,
     required this.date,
   });
@@ -26,7 +26,7 @@ class OngoingEvent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 150,
+              height: 135,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
@@ -66,17 +66,20 @@ class OngoingEvent extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(Icons.calendar_month),
+                      const Icon(
+                        Icons.calendar_month,
+                        size: 20,
+                      ),
                       Text(
                         date,
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                           color: Colors.grey[600],
-                          fontWeight: FontWeight.w400,
+                          // fontWeight: FontWeight.w400,
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: ontap,
                         child: const Icon(Icons.link),
                       )
                     ],

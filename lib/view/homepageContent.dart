@@ -15,8 +15,25 @@ class HomePageContent extends StatelessWidget {
       body: ListView(
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 15,
+                  top: 15,
+                ),
+                child: Text(
+                  "Top Picks :",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
               ImageCarousel(
+                onTap: () async {
+                  helperController.launchURL(helperController.image[0]["url"]);
+                },
                 imageList: helperController.image,
                 height: 250,
                 autoPlay: true,

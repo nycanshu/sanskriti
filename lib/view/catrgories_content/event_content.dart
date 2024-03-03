@@ -31,13 +31,16 @@ Widget eventContent() {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 0.8,
-                crossAxisSpacing: 10,
+                crossAxisSpacing: 0.8,
                 mainAxisSpacing: 10),
             itemBuilder: ((context, index) => OngoingEvent(
                   image: helperController.ongoingEvent[index]['image'],
                   name: helperController.ongoingEvent[index]['name'],
                   location: helperController.ongoingEvent[index]['location'],
-                  link: helperController.ongoingEvent[index]['link'],
+                  ontap: () async {
+                    helperController.launchURL(
+                        helperController.ongoingEvent[index]['link']);
+                  },
                   date: helperController.ongoingEvent[index]['date'],
                 )),
             itemCount: helperController.ongoingEvent.length,
@@ -56,10 +59,13 @@ Widget eventContent() {
           ),
           ListView.builder(
             itemBuilder: ((context, index) => UpcomingEvent(
+                  ontap: () async {
+                    helperController.launchURL(
+                        helperController.upcomingEvent[index]['link']);
+                  },
                   image: helperController.upcomingEvent[index]['image'],
                   name: helperController.upcomingEvent[index]['name'],
                   location: helperController.upcomingEvent[index]['location'],
-                  link: helperController.upcomingEvent[index]['link'],
                   date: helperController.upcomingEvent[index]['date'],
                 )),
             itemCount: helperController.upcomingEvent.length,

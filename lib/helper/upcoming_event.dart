@@ -4,14 +4,15 @@ class UpcomingEvent extends StatelessWidget {
   final String image;
   final String name;
   final String date;
-  final String link;
+
   final String location;
+  final VoidCallback ontap;
 
   const UpcomingEvent({
     super.key,
+    required this.ontap,
     required this.image,
     required this.name,
-    required this.link,
     required this.location,
     required this.date,
   });
@@ -21,13 +22,13 @@ class UpcomingEvent extends StatelessWidget {
     return Card(
       elevation: 5,
       child: GestureDetector(
-        onTap: () {},
+        onTap: ontap,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: 150,
-              width: 200,
+              width: 180,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(5),
@@ -91,7 +92,7 @@ class UpcomingEvent extends StatelessWidget {
                     ],
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: ontap,
                     child: const Text('Tap to view more'),
                   )
                 ],

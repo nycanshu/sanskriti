@@ -40,7 +40,7 @@ Widget feedbackContent() {
             height: 20,
           ),
           CustomFormField(
-            controller: feedbackController.nameController,
+            controller: feedbackController.emailController,
             headingText: 'Email',
             hintText: 'yourmail@gmail.com',
             maxLines: 1,
@@ -53,7 +53,7 @@ Widget feedbackContent() {
             height: 20,
           ),
           CustomFormField(
-            controller: feedbackController.nameController,
+            controller: feedbackController.feedbackController,
             headingText: 'Comment, if any',
             hintText: 'Write something here....',
             maxLines: 10,
@@ -66,9 +66,17 @@ Widget feedbackContent() {
             height: 50,
           ),
           AuthButton(
-            text: 'PUBLISH FEEDBACK',
+            text: 'SEND FEEDBACK',
             onTap: () {
+              feedbackController.sendFeedback(
+                feedbackController.nameController.text,
+                feedbackController.emailController.text,
+                feedbackController.feedbackController.text,
+              );
               Get.snackbar("Message", "Feedback submitted successfully");
+              feedbackController.nameController.clear();
+              feedbackController.emailController.clear();
+              feedbackController.feedbackController.clear();
             },
           ),
         ],
