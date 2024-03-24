@@ -7,7 +7,7 @@ class HelperController extends GetxController {
     final Uri uri = Uri.parse(url.toString());
     if (!await launchUrl(
       uri,
-      mode: LaunchMode.externalApplication,
+      mode: LaunchMode.inAppBrowserView,
     )) {
       throw "Can't launch $url";
     }
@@ -46,54 +46,63 @@ class HelperController extends GetxController {
   ];
   List<Map<String, dynamic>> educationBooks = [
     {
-      "image": "images/ayurveda.jpg",
+      "image":
+          "https://firebasestorage.googleapis.com/v0/b/sanskriti-by-okay-anshu.appspot.com/o/education%2Fayurveda.jpg?alt=media&token=5aba80dd-f525-450c-9c2c-b1c0c4872865",
       "name": "Ayurveda",
       "link":
           "https://www.chandigarhayurvedcentre.com/wp-content/themes/organix/E-books/astanga-hridaya-sutrasthan-handbook.pdf"
     },
     {
-      "image": "images/ramayan.jpg",
+      "image":
+          "https://firebasestorage.googleapis.com/v0/b/sanskriti-by-okay-anshu.appspot.com/o/education%2Framayan.jpg?alt=media&token=7bceb5af-bc62-4c92-a3fb-7a9db2df5d4b",
       "name": "Ramayan",
       "link": "https://www.gutenberg.org/files/24869/24869-pdf.pdf"
     },
     {
-      "image": "images/bhagwat_gita.png",
+      "image":
+          "https://firebasestorage.googleapis.com/v0/b/sanskriti-by-okay-anshu.appspot.com/o/education%2Fbhagwat_gita.png?alt=media&token=110f6b03-10b5-4168-b2c3-efac0d5f2b67",
       "name": "Bhagwat Gita",
       "link": "https://bhagavadgita.io/chapter/1"
     },
     {
-      "image": "images/mahabharat.png",
+      "image":
+          "https://firebasestorage.googleapis.com/v0/b/sanskriti-by-okay-anshu.appspot.com/o/education%2Fmahabharat.png?alt=media&token=bbce6eaa-2044-453d-a9a6-376c39c92236",
       "name": "Mahabharat",
       "link": "https://www.gutenberg.org/cache/epub/7864/pg7864-images.html"
     },
   ];
   List<Map<String, dynamic>> eBooks = [
     {
-      "image": "images/asura.jpg",
+      "image":
+          "https://firebasestorage.googleapis.com/v0/b/sanskriti-by-okay-anshu.appspot.com/o/E-book%2Fasura.jpg?alt=media&token=106a1e0a-1203-4be9-8458-b3c35d30a37b",
       "name": "Asura",
       "link":
           "https://books.google.co.in/books?id=aSeCA-2sGO4C&printsec=frontcover#v=onepage&q&f=false"
     },
     {
-      "image": "images/ayurveda.jpg",
+      "image":
+          "https://firebasestorage.googleapis.com/v0/b/sanskriti-by-okay-anshu.appspot.com/o/E-book%2Fayurveda.jpg?alt=media&token=d1176546-98ca-49f9-944a-34b7d34faa67",
       "name": "Ayurveda",
       "link":
           "https://www.chandigarhayurvedcentre.com/wp-content/themes/organix/E-books/astanga-hridaya-sutrasthan-handbook.pdf"
     },
     {
-      "image": "images/lankasPrincess.jpg",
+      "image":
+          "https://firebasestorage.googleapis.com/v0/b/sanskriti-by-okay-anshu.appspot.com/o/E-book%2FlankasPrincess.jpg?alt=media&token=7f6f7a4f-3421-4b34-b04c-02fe1b59f830",
       "name": "Lanka's Princess",
       "link":
           "https://www.researchgate.net/publication/357311317_Lanka's_Princess"
     },
     {
-      "image": "images/Shiva-trilogy.png",
+      "image":
+          "https://firebasestorage.googleapis.com/v0/b/sanskriti-by-okay-anshu.appspot.com/o/E-book%2FShiva-trilogy.png?alt=media&token=3a076ce3-d5fa-4b8a-aa03-ade43409d77d",
       "name": "Shiva Trilogy",
       "link":
           "https://archive.org/details/shivatrilogybyamish/Shiva%20trilogy%20book01%20the%20immortals%20Of%20meluha/page/n5/mode/2up"
     },
     {
-      "image": "images/The_Palace_of_Illusions.jpg",
+      "image":
+          "https://firebasestorage.googleapis.com/v0/b/sanskriti-by-okay-anshu.appspot.com/o/E-book%2FThe_Palace_of_Illusions.jpg?alt=media&token=cc1571f5-a0dd-49b3-8525-5c8fae5ca667",
       "name": "The Palace of Illusions",
       "link":
           "https://archive.org/details/the-palace-of-illusions-com-v4-0/page/n7/mode/2up"

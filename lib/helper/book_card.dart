@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BookCard extends StatelessWidget {
-  final ImageProvider image;
+  final String image;
   final String title;
   final VoidCallback onTap;
 
@@ -28,10 +28,7 @@ class BookCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
-                child: Image(
-                  image: image,
-                  fit: BoxFit.cover,
-                ),
+                child: Image.network(image, fit: BoxFit.cover),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(

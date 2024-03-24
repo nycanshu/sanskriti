@@ -82,7 +82,7 @@ Widget ebookContent() {
                     handleEbookTap(helperController.eBooks[index]['name']);
                   },
                   name: helperController.eBooks[index]['name'],
-                  image: AssetImage(helperController.eBooks[index]['image']),
+                  image: helperController.eBooks[index]['image'],
                   link: helperController.eBooks[index]['link'],
                 );
               },

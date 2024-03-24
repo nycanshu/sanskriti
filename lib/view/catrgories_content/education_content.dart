@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sanskriti/controller/education_controller.dart';
 import 'package:sanskriti/controller/helper_controller.dart';
 import 'package:sanskriti/helper/book_card.dart';
+
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 Widget educationContent() {
   HelperController helperController = Get.put(HelperController());
+  EducationController educationController = Get.put(EducationController());
+
   String videoId;
   videoId = YoutubePlayer.convertUrlToId(
       "https://www.youtube.com/watch?v=_fVad1jjsKc&pp=ygUaa25vdyB5b3VyIGluZGlhbiBteXRob2xvZ3k%3D")!;
@@ -86,21 +90,27 @@ Widget educationContent() {
           const SizedBox(
             height: 20,
           ),
-          ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return BookCard(
-                  title: helperController.educationBooks[index]['name'],
-                  image: AssetImage(
-                      helperController.educationBooks[index]['image']),
-                  onTap: () async {
-                    await helperController.launchURL(
-                        helperController.educationBooks[index]['link']);
-                  },
-                );
-              },
-              itemCount: helperController.educationBooks.length),
+          Obx(
+            () => educationController.educationList.isEmpty
+                ? const Center(child: CircularProgressIndicator())
+                : ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: educationController.educationList.length,
+                    itemBuilder: (context, index) {
+                      return BookCard(
+                        image: educationController.educationList[index].image ??
+                            "",
+                        title:
+                            educationController.educationList[index].name ?? "",
+                        onTap: () {
+                          helperController.launchURL(
+                              educationController.educationList[index].name ??
+                                  "");
+                        },
+                      );
+                    },
+                  ),
+          ),
         ],
       ),
     ),

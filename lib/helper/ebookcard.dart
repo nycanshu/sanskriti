@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class EbookCard extends StatelessWidget {
-  final AssetImage image;
+  final String image;
   final String name;
   final String link;
   final VoidCallback onTap;
@@ -30,8 +30,8 @@ class EbookCard extends StatelessWidget {
             ClipRRect(
               borderRadius:
                   const BorderRadius.vertical(top: Radius.circular(10)),
-              child: Image(
-                image: image,
+              child: Image.network(
+                image,
                 fit: BoxFit.cover,
                 height: 180,
                 //width: 150,

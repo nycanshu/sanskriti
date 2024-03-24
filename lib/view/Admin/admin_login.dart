@@ -1,20 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:sanskriti/controller/auth_controller.dart';
-import 'package:sanskriti/view/home_screen.dart';
-import 'package:sanskriti/view/sign_up.dart';
-import '../utils/app_colors.dart';
-import '../utils/custom_button.dart';
-import '../utils/custom_formfield.dart';
-//import '../utils/custom_header.dart';
-import '../utils/custom_richtext.dart';
+import "package:flutter/material.dart";
+import "package:get/get.dart";
+import "package:sanskriti/controller/admin_controller.dart";
+import "package:sanskriti/utils/app_colors.dart";
+import "package:sanskriti/utils/custom_button.dart";
+import "package:sanskriti/utils/custom_formfield.dart";
+import "package:sanskriti/utils/custom_richtext.dart";
+import "package:sanskriti/view/sign_up.dart";
 
-class Signin extends StatelessWidget {
-  const Signin({super.key});
+class AdminLogin extends StatelessWidget {
+  const AdminLogin({super.key});
 
   @override
   Widget build(BuildContext context) {
-    AuthController authController = Get.put(AuthController());
+    RxBool isPasswordVisible = true.obs;
+    AdminController adminController = Get.put(AdminController());
     return Scaffold(
       body: Stack(
         children: [
@@ -55,7 +54,7 @@ class Signin extends StatelessWidget {
                     hintText: "Email",
                     obsecureText: false,
                     suffixIcon: const SizedBox(),
-                    controller: authController.emailController,
+                    controller: adminController.adminEmailController,
                     maxLines: 1,
                     textInputAction: TextInputAction.done,
                     textInputType: TextInputType.emailAddress,
@@ -69,10 +68,19 @@ class Signin extends StatelessWidget {
                     textInputAction: TextInputAction.done,
                     textInputType: TextInputType.text,
                     hintText: "At least 8 Character",
-                    obsecureText: true,
+                    obsecureText: isPasswordVisible.value,
                     suffixIcon: IconButton(
-                        icon: const Icon(Icons.visibility), onPressed: () {}),
-                    controller: authController.passwordController,
+                      icon: Icon(
+                        isPasswordVisible.value
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: AppColors.blue,
+                      ),
+                      onPressed: () {
+                        isPasswordVisible.toggle(); // Toggle the boolean value
+                      },
+                    ),
+                    controller: adminController.adminPasswordController,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -97,9 +105,9 @@ class Signin extends StatelessWidget {
                   ),
                   AuthButton(
                     onTap: () {
-                      authController.loginUser();
+                      adminController.adminLogin();
                     },
-                    text: 'Log In',
+                    text: 'Admin Login',
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -107,8 +115,8 @@ class Signin extends StatelessWidget {
                       right: 24,
                     ),
                     child: CustomRichText(
-                      description: "Don't Have account ? ",
-                      text: "Create Here",
+                      description: "Not an Admin? ",
+                      text: "Login as User.",
                       onTap: () {
                         Get.to(const SignUp());
                       },

@@ -4,6 +4,8 @@ import "package:sanskriti/utils/app_colors.dart";
 import "package:sanskriti/view/sign_in.dart";
 import "package:sanskriti/view/sign_up.dart";
 
+import "Admin/admin_login.dart";
+
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
@@ -59,9 +61,36 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 90,
+              height: 35,
+            ),
+            InkWell(
+              onTap: () {
+                Get.offAll(const AdminLogin());
+              },
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width - 10,
+                decoration: const BoxDecoration(
+                  color: AppColors.lightblue,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10.0),
+                  ),
+                ),
+                child: const Center(
+                  child: Text(
+                    "Log In as Admin",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
             ),
             //sign in container
+            const SizedBox(
+              height: 10,
+            ),
             InkWell(
               onTap: () {
                 Get.offAll(const Signin());
@@ -77,7 +106,7 @@ class WelcomePage extends StatelessWidget {
                 ),
                 child: const Center(
                   child: Text(
-                    "Log In",
+                    "Log In as User",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
