@@ -27,4 +27,20 @@ class EducationController extends GetxController {
       print("Error fetching 🤔🤔🤔 education data: $e");
     }
   }
+
+  Future<void> addEducationSection(EducationCard education) async {
+    try {
+      // Convert EducationCard object to Map
+      final Map<String, dynamic> data = education.toJson();
+
+      // Add data to Firestore
+      await _firestore.collection('education').add(data);
+
+      // Update local list
+      educationList.add(education);
+    } catch (e) {
+      // Handle error
+      print("Error adding education section😒😒: $e");
+    }
+  }
 }
